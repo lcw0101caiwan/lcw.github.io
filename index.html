@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罗才旺 - 个人信息页</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',    // 主色调：蓝色
+                        secondary: '#1e40af',  // 辅助色：深蓝色
+                        accent: '#60a5fa',     // 强调色：浅蓝色
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-graduation-cap text-primary text-2xl"></i>
+                <h1 class="text-xl font-bold text-secondary">学生信息平台</h1>
+            </div>
+            
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="text-gray-700 hover:text-primary transition-colors font-medium">首页</a>
+                <a href="#info" class="text-gray-700 hover:text-primary transition-colors font-medium">个人信息</a>
+                <a href="#course" class="text-gray-700 hover:text-primary transition-colors font-medium">课程信息</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary transition-colors font-medium">联系我</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-gray-700 focus:outline-none" id="menu-toggle">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobile-menu">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#home" class="text-gray-700 hover:text-primary py-2 transition-colors font-medium">首页</a>
+                <a href="#info" class="text-gray-700 hover:text-primary py-2 transition-colors font-medium">个人信息</a>
+                <a href="#course" class="text-gray-700 hover:text-primary py-2 transition-colors font-medium">课程信息</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary py-2 transition-colors font-medium">联系我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-secondary leading-tight text-shadow">
+                    你好，我是<br>
+                    <span class="text-primary">罗才旺</span>
+                </h1>
+                <p class="text-gray-600 text-lg md:text-xl mt-6 max-w-lg mx-auto md:mx-0">
+                    欢迎来到我的个人信息页面，我是信阳师范大学地理信息科学专业的学生。
+                </p>
+                <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                    <a href="#info" class="px-6 py-3 bg-primary text-white rounded-lg shadow-lg hover:bg-secondary transition-all transform hover:scale-105">
+                        查看个人信息
+                    </a>
+                    <a href="#course" class="px-6 py-3 bg-white text-primary border border-primary rounded-lg hover:bg-gray-50 transition-all">
+                        课程信息
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center overflow-hidden shadow-2xl">
+                        <img src="https://picsum.photos/seed/geography/400/400" alt="罗才旺的照片" class="w-full h-full object-cover mix-blend-overlay">
+                    </div>
+                    <div class="absolute -bottom-5 -right-5 bg-white p-4 rounded-lg shadow-lg card-hover">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa fa-id-card text-primary"></i>
+                            <span class="font-medium">学号: 20225084010</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 个人信息区域 -->
+    <section id="info" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-secondary">个人信息</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+                <div class="bg-gradient-to-r from-primary to-secondary p-6 text-white">
+                    <h3 class="text-2xl font-bold">基本信息</h3>
+                </div>
+                <div class="p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- 姓名信息 -->
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fa fa-user text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">姓名</h4>
+                                <p class="text-gray-600 mt-1">罗才旺</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 学号信息 -->
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fa fa-graduation-cap text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">学号</h4>
+                                <p class="text-gray-600 mt-1">20225084010</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 学院信息 -->
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fa fa-building text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">学院</h4>
+                                <p class="text-gray-600 mt-1">地理科学学院</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 专业信息 -->
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fa fa-book text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">专业</h4>
+                                <p class="text-gray-600 mt-1">地理信息科学</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 入学时间信息 -->
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fa fa-calendar text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">入学时间</h4>
+                                <p class="text-gray-600 mt-1">2022年9月</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 邮箱信息 -->
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fa fa-envelope text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-700">邮箱</h4>
+                                <p class="text-gray-600 mt-1">3485414613@qq.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程信息区域 -->
+    <section id="course" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-secondary">课程信息</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
+                    本学期正在学习的课程，包括课程名称、学分和简要介绍
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 地理信息系统课程卡片 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 bg-green-100 flex items-center justify-center">
+                        <i class="fa fa-globe text-6xl text-green-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold text-gray-800">地理信息系统</h3>
+                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">4学分</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            学习地理信息系统的基本原理、方法和技术，掌握空间数据的采集、存储、分析和可视化。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-calendar mr-2"></i>
+                            <span>每周一、三 3 - 4节</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 遥感图像处理课程卡片 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fa fa-map-o text-6xl text-blue-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold text-gray-800">遥感图像处理</h3>
+                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">3学分</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            学习遥感图像的获取、处理和分析方法，掌握遥感技术在资源环境监测中的应用。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-calendar mr-2"></i>
+                            <span>每周二、四 1 - 2节</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 空间数据库课程卡片 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fa fa-database text-6xl text-purple-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold text-gray-800">空间数据库</h3>
+                            <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">3学分</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            学习空间数据库的设计与管理，掌握空间数据建模、查询和分析的方法和技术。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-calendar mr-2"></i>
+                            <span>每周三、五 5 - 6节</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-secondary">联系我</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
+                    欢迎通过邮箱或地址联系我
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 联系方式 -->
+                    <div class="bg-gray-50 rounded-xl p-8 shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">联系方式</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fa fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-700">邮箱</h4>
+                                    <p class="text-gray-600 mt-1">3485414613@qq.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fa fa-map-marker text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-700">地址</h4>
+                                    <p class="text-gray-600 mt-1">信阳师范大学</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 发送消息表单 -->
+                    <div class="bg-white rounded-xl p-8 shadow-md border border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">发送消息</h3>
+                        <form>
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="请输入您的姓名">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">邮箱</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="请输入您的邮箱">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">消息</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="请输入您的消息"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-secondary transition-colors font-medium">
+                                发送消息
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- 网站介绍 -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <i class="fa fa-graduation-cap text-primary text-2xl"></i>
+                        <h3 class="text-xl font-bold">学生信息平台</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        展示个人信息和课程学习情况的平台
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-qq"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 快速链接 -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">快速链接</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="#info" class="text-gray-400 hover:text-white transition-colors">个人信息</a></li>
+                        <li><a href="#course" class="text-gray-400 hover:text-white transition-colors">课程信息</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 课程资源 -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">课程资源</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">GIS教程</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">遥感图像处理</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">空间分析</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">地理建模</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 联系信息 -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">联系信息</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">3485414613@qq.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">信阳师范大学</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2025 学生信息平台 | 学号: 20225084010 | 姓名: 罗才旺 | 地址: 信阳师范大学</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-md');
+                navbar.classList.remove('py-3', 'shadow-sm');
+            } else {
+                navbar.classList.add('py-3', 'shadow-sm');
+                navbar.classList.remove('py-2', 'shadow-md');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // 关闭移动菜单（如果打开）
+                    document.getElementById('mobile-menu').classList.add('hidden');
+
+                    // 平滑滚动到目标位置
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 元素进入视口时添加动画效果
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section > div > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
